@@ -13,16 +13,15 @@ RUN runDeps="\
 	&& rm -fr /tmp/shadowsocksr-3.2.2 \
 	&& rm -f /tmp/shadowsocksr-3.2.2.tar.gz \
     && echo $'{ \n\
-               "server": "", \n\
-               "server_port": 8522, \n\
-               "local_port": 1080, \n\
-               "password": "MDQ5ODczNj", \n\
-               "timeout": 100, \n\
-               "protocol" : "origin", \n\
-               "method": "aes-256-cfb", \n\
-               "fast_open": true, \n\
-               "obfs": "tls1.2_ticket_auth" \n\
-             }'> /ss.conf
+                  "server":"", \n\
+                  "server_port":8522, \n\
+                  "local_port":1080, \n\
+                  "password":"MDQ5ODczNj", \n\
+                  "timeout":600, \n\
+                  "method":"aes-256-cfb", \n\
+                  "protocol":"origin", \n\
+                  "obfs":"tls1.2_ticket_auth" \n\
+              }'> /ss.conf
 
 EXPOSE 1080
 
