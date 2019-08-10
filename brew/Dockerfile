@@ -5,6 +5,7 @@ RUN runDeps="\
 		curl \
 		ruby \
 		bash \
+		git \
 	"; \
 	set -ex \
 	&& apk add --no-cache --virtual .build-deps ${runDeps} \
@@ -18,7 +19,6 @@ RUN runDeps="\
               "protocol":"origin", \n\
               "obfs":"tls1.2_ticket_auth" \n\
           }'> /ss.conf
-#USER nobody
 RUN adduser --system -s /sbin/nologin linuxbrew
 USER linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
