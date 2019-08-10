@@ -1,6 +1,4 @@
 FROM python:3.6-alpine
-ENV SERVER=""
-ENV PWD="MDQ5ODczNj"
 RUN runDeps="\
 		tar \
 		wget \
@@ -15,7 +13,7 @@ RUN runDeps="\
 	&& rm -fr /tmp/shadowsocksr-3.2.2 \
 	&& rm -f /tmp/shadowsocksr-3.2.2.tar.gz \
     && echo $'{ \n\
-               "server": "$SERVER", \n\
+               "server": "", \n\
                "server_port": 8522, \n\
                "local_port": 1080, \n\
                "password": "MDQ5ODczNj", \n\
@@ -25,10 +23,6 @@ RUN runDeps="\
                "Obfs": "tls1.2_ticket_auth" \n\
              }'> /ss.conf
 
-# COPY ./config_sample.json /etc/shadowsocks-r/config.json
-# VOLUME /etc/shadowsocks-r
-
-USER nobody
 EXPOSE 1080
 
 CMD [ "/usr/local/shadowsocks/local.py", "-c", "ss.json" ]
