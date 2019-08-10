@@ -4,7 +4,7 @@ MAINTAINER 378393850@qq.com
 ENV SERVER=""
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get install -y apt-utils curl ruby git
+	&& apt-get install -y apt-utils curl ruby git build-essential file
 RUN adduser --system --shell /sbin/nologin linuxbrew
 USER linuxbrew
 WORKDIR /home/linuxbrew
