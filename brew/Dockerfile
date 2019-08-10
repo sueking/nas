@@ -10,8 +10,8 @@ USER linuxbrew
 WORKDIR /home/linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
-RUN git -C "$(brew --repo homebrew/core)" fetch --unshallow \
-    && brew install gcc shadowsocks-libev \
+# RUN git -C "$(brew --repo homebrew/core)" fetch --unshallow
+RUN brew install gcc shadowsocks-libev \
     && echo $'{ \n\
               "server":"", \n\
               "server_port":8522, \n\
