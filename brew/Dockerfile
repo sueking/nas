@@ -11,16 +11,16 @@ WORKDIR /home/linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
 # RUN git -C "$(brew --repo homebrew/core)" fetch --unshallow
-RUN brew install gcc shadowsocks-libev \
-    && echo $'{ \n\
-              "server":"", \n\
-              "server_port":8522, \n\
-              "local_port":1080, \n\
-              "password":"MDQ5ODczNj", \n\
-              "timeout":600, \n\
-              "method":"aes-256-cfb", \n\
-              "protocol":"origin", \n\
-              "obfs":"tls1.2_ticket_auth" \n\
-          }'> /home/linuxbrew/ss.conf
-
-CMD ["ss-local","-s","$SERVER","-c","ss.conf"]
+#RUN brew install gcc shadowsocks-libev \
+#    && echo $'{ \n\
+#              "server":"", \n\
+#              "server_port":8522, \n\
+#              "local_port":1080, \n\
+#              "password":"MDQ5ODczNj", \n\
+#              "timeout":600, \n\
+#              "method":"aes-256-cfb", \n\
+#              "protocol":"origin", \n\
+#              "obfs":"tls1.2_ticket_auth" \n\
+#          }'> /home/linuxbrew/ss.conf
+#
+#CMD ["ss-local","-s","$SERVER","-c","ss.conf"]
