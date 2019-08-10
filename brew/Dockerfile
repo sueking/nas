@@ -1,6 +1,6 @@
 FROM ubuntu
 MAINTAINER 378393850@qq.com
-RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+# RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 ENV SERVER=""
 RUN set -ex \
 	&& apt-get update \
@@ -10,8 +10,9 @@ USER linuxbrew
 WORKDIR /home/linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
-RUN brew install gcc shadowsocks-libev \
-    echo $'{ \n\
+RUN git -C "$(brew --repo homebrew/core)" fetch --unshallow \
+    && brew install gcc shadowsocks-libev \
+    && echo $'{ \n\
               "server":"", \n\
               "server_port":8522, \n\
               "local_port":1080, \n\
