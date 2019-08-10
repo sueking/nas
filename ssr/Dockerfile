@@ -29,5 +29,6 @@ RUN runDeps="\
 # VOLUME /etc/shadowsocks-r
 
 USER nobody
+EXPOSE 1080
 
-CMD [ "/usr/local/shadowsocks/local.py", "-c", "ss.json", "-s","$SERVER" ]
+CMD [ "/usr/local/shadowsocks/local.py", "-c", "ss.json" ]
