@@ -20,9 +20,9 @@ RUN runDeps="\
                "timeout": 100, \n\
                "method": "aes-256-cfb", \n\
                "fast_open": true, \n\
-               "Obfs": "tls1.2_ticket_auth" \n\
+               "obfs": "tls1.2_ticket_auth" \n\
              }'> /ss.conf
 
 EXPOSE 1080
 
-CMD [ "/usr/local/shadowsocks/local.py", "-c", "ss.json" ]
+CMD [ "/usr/local/shadowsocks/local.py", "-c", "/ss.json" ]
