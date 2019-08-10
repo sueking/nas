@@ -7,6 +7,7 @@ RUN set -ex \
 	&& apt-get install -y apt-utils curl ruby git
 RUN adduser --system --shell /sbin/nologin linuxbrew
 USER linuxbrew
+WORKDIR /home/linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
 RUN brew install gcc shadowsocks-libev \
@@ -19,6 +20,6 @@ RUN brew install gcc shadowsocks-libev \
               "method":"aes-256-cfb", \n\
               "protocol":"origin", \n\
               "obfs":"tls1.2_ticket_auth" \n\
-          }'> ss.conf
+          }'> /home/linuxbrew/ss.conf
 
 CMD ["ss-local","-s","$SERVER","-c","ss.conf"]
