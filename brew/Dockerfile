@@ -22,6 +22,7 @@ RUN runDeps="\
 RUN adduser --system -s /sbin/nologin linuxbrew
 USER linuxbrew
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-##     && brew install shadowsocks-libev \
+ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
+RUN brew install shadowsocks-libev
 
 # ENTRYPOINT ["sslocal","-s","$IP","-p","8522","-k","$PWD","-l","1080","-m",""]
