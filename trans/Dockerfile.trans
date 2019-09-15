@@ -14,5 +14,5 @@ RUN sed -i -e "s/#rpc-password#/$PASSWORD/" $SETTINGS && \
     sed -i -e "s/#rpc-username#/$USERNAME/" $SETTINGS
 
 EXPOSE 9091 51413/tcp 51413/udp
-CMD /usr/bin/transmission-daemon --foreground --config-dir /etc/transmission-daemon
+CMD /usr/bin/transmission-daemon --config-dir /etc/transmission-daemon
 
