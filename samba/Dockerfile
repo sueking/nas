@@ -5,5 +5,5 @@ RUN apk --no-cache add samba --update
 COPY smb.conf /etc/samba/smb.conf
 
 EXPOSE 445
-CMD smbd -i
+CMD smbd -F -S  --no-process-group
 
